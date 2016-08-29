@@ -1,0 +1,11 @@
+Source: raspberrypi-net-mods
+Section: net
+Priority: extra
+Maintainer: Serge Schneider <serge@raspberrypi.org>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.6
+
+Package: raspberrypi-net-mods
+Architecture: armhf
+Depends: ${misc:Depends}, raspberrypi-ui-mods (>= 1.1), dhcpcd5 (>= 6.7.1)
+Description: Network configuration for the Raspberry Pi UI

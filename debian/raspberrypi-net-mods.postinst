@@ -1,0 +1,69 @@
+#!/bin/sh
+
+set -e
+
+ORIGSUM=c733430790aeafd2fb03d51a74381e7b
+ORIGSUM2=6b0af7757bfe7fb835cc37847edd15d2
+OLDSUM101=7759b1f54568d1b7e1996401558ded15
+OLDSUM110=ea46d8ac1d6e44d5d924855e0902f3e4
+OLDSUM120=5411833b89f7261eaf90cc3153a208b6
+CURSUM=0200b0a5dd541dc428a0d9c7116ad08d
+
+checksum () {
+	echo "$1  /etc/network/interfaces" | md5sum -c --status 2> /dev/null
+}
+
+case "$1" in
+    configure)
+	if checksum $OLDSUM120 || \
+	   checksum $OLDSUM110 || \
+	   checksum $OLDSUM101 || \
+	   checksum $ORIGSUM || \
+	   checksum $ORIGSUM2 || \
+
+	   [ ! -e /etc/network/interfaces ]; then
+			echo "Updating /etc/network/interfaces. Original backed up as interfaces.dpkg-old."
+			mv /etc/network/interfaces /etc/network/interfaces.dpkg-old 2> /dev/null || true
+			FILE=/etc/network/interfaces
+		elif checksum $CURSUM; then
+			FILE=/dev/null
+		else
+			echo "Modified /etc/network/interfaces detected. Leaving unchanged and writing new file as interfaces.new."
+			FILE=/etc/network/interfaces.new
+		fi
+			cat <<EOF > $FILE
+# interfaces(5) file used by ifup(8) and ifdown(8)
+
+# Please note that this file is written to be used with dhcpcd
+# For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
+
+# Include files from /etc/network/interfaces.d:
+source-directory /etc/network/interfaces.d
+
+auto lo
+iface lo inet loopback
+
+iface eth0 inet manual
+
+allow-hotplug wlan0
+iface wlan0 inet manual
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+
+allow-hotplug wlan1
+iface wlan1 inet manual
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+EOF
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+#DEBHELPER#
+
+exit 0

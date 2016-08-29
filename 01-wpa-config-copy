@@ -1,0 +1,5 @@
+#!/bin/sh
+if [ -e /boot/wpa_supplicant.conf ]; then
+        /bin/mv /boot/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf
+        /bin/chmod 600 /etc/wpa_supplicant/wpa_supplicant.conf
+fi

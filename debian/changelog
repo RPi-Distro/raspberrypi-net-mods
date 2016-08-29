@@ -1,0 +1,38 @@
+raspberrypi-net-mods (1.2.3) jessie; urgency=medium
+
+  * Add missing checksum
+
+ -- Serge Schneider <serge@raspberrypi.org>  Tue, 26 Jul 2016 16:05:37 +0100
+
+raspberrypi-net-mods (1.2.2) jessie; urgency=medium
+
+  * If /boot/wpa_supplicant.conf exists, move it to /etc/wpa_supplicant
+
+ -- Serge Schneider <serge@raspberrypi.org>  Thu, 31 Mar 2016 14:24:53 +0100
+
+raspberrypi-net-mods (1.2.1) jessie; urgency=medium
+
+  * Required allow-hotplug lines added back
+
+ -- Serge Schneider <serge@raspberrypi.org>  Sat, 24 Oct 2015 13:16:08 +0100
+
+raspberrypi-net-mods (1.2) jessie; urgency=medium
+
+  * Cleaner /etc/network/interfaces
+  * Bump standards to 3.9.6
+  * Set section to net
+
+ -- Serge Schneider <serge@raspberrypi.org>  Sat, 17 Oct 2015 00:32:16 +0100
+
+raspberrypi-net-mods (1.1) jessie; urgency=low
+
+  * Ensure /etc/network/interfaces is not a conffile
+  * Switch to 3.0 (native) format
+
+ -- Serge Schneider <serge@raspberrypi.org>  Mon, 21 Sep 2015 03:50:36 +0100
+
+raspberrypi-net-mods (1.0-1) unstable; urgency=low
+
+  * Initial packaging
+
+ -- Serge Schneider <serge@raspberrypi.org>  Wed, 22 Apr 2015 08:34:49 +0100
