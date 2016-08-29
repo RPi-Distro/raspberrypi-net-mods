@@ -1,3 +1,9 @@
+raspberrypi-net-mods (1.2.4) jessie; urgency=medium
+
+  * Make the package archutecture-independant
+
+ -- Serge Schneider <serge@raspberrypi.org>  Tue, 30 Aug 2016 01:24:46 +1000
+
 raspberrypi-net-mods (1.2.3) jessie; urgency=medium
 
   * Add missing checksum
