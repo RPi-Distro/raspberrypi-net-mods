@@ -4,6 +4,7 @@ set -e
 
 ORIGSUM=c733430790aeafd2fb03d51a74381e7b
 ORIGSUM2=6b0af7757bfe7fb835cc37847edd15d2
+ORIGSUM3=4b09c86aaeef72f7afda6caeccf40882
 OLDSUM101=7759b1f54568d1b7e1996401558ded15
 OLDSUM110=ea46d8ac1d6e44d5d924855e0902f3e4
 OLDSUM120=5411833b89f7261eaf90cc3153a208b6
@@ -20,6 +21,7 @@ case "$1" in
 	   checksum $OLDSUM101 || \
 	   checksum $ORIGSUM || \
 	   checksum $ORIGSUM2 || \
+	   checksum $ORIGSUM3 || \
 
 	   [ ! -e /etc/network/interfaces ]; then
 			echo "Updating /etc/network/interfaces. Original backed up as interfaces.dpkg-old."

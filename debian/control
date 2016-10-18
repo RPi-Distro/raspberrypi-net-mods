@@ -7,5 +7,5 @@ Standards-Version: 3.9.6
 
 Package: raspberrypi-net-mods
 Architecture: all
-Depends: ${misc:Depends}, raspberrypi-ui-mods (>= 1.1), dhcpcd5 (>= 6.7.1)
+Depends: ${misc:Depends}, dhcpcd5 (>= 6.7.1)
 Description: Network configuration for the Raspberry Pi UI
