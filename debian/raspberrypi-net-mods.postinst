@@ -8,7 +8,8 @@ ORIGSUM3=4b09c86aaeef72f7afda6caeccf40882
 OLDSUM101=7759b1f54568d1b7e1996401558ded15
 OLDSUM110=ea46d8ac1d6e44d5d924855e0902f3e4
 OLDSUM120=5411833b89f7261eaf90cc3153a208b6
-CURSUM=0200b0a5dd541dc428a0d9c7116ad08d
+OLDSUM125=0200b0a5dd541dc428a0d9c7116ad08d
+CURSUM=5426e6a4e1dd365bd08cd4b8cbffa146
 
 checksum () {
 	echo "$1  /etc/network/interfaces" | md5sum -c --status 2> /dev/null
@@ -16,7 +17,8 @@ checksum () {
 
 case "$1" in
     configure)
-	if checksum $OLDSUM120 || \
+	if checksum $OLDSUM125 || \
+	   checksum $OLDSUM120 || \
 	   checksum $OLDSUM110 || \
 	   checksum $OLDSUM101 || \
 	   checksum $ORIGSUM || \
@@ -41,19 +43,6 @@ case "$1" in
 
 # Include files from /etc/network/interfaces.d:
 source-directory /etc/network/interfaces.d
-
-auto lo
-iface lo inet loopback
-
-iface eth0 inet manual
-
-allow-hotplug wlan0
-iface wlan0 inet manual
-    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-
-allow-hotplug wlan1
-iface wlan1 inet manual
-    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 EOF
     ;;
 
