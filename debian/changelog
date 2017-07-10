@@ -2,6 +2,7 @@ raspberrypi-net-mods (1.2.6) stretch; urgency=medium
 
   * Remove configuration from interfaces file.
     - Use DHCPCD to start wpa_supplicant instead
+  * Bump compat level to 9
 
  -- Serge Schneider <serge@raspberrypi.org>  Mon, 10 Jul 2017 10:22:27 +0100
 
