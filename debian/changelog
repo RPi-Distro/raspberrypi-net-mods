@@ -1,3 +1,10 @@
+raspberrypi-net-mods (1.2.7) stretch; urgency=medium
+
+  * Fix wait.conf on upgrade
+  * Fix CURSUM value
+
+ -- Serge Schneider <serge@raspberrypi.org>  Mon, 17 Jul 2017 14:34:31 +0100
+
 raspberrypi-net-mods (1.2.6) stretch; urgency=medium
 
   * Remove configuration from interfaces file.

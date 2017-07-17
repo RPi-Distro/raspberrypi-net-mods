@@ -9,7 +9,7 @@ OLDSUM101=7759b1f54568d1b7e1996401558ded15
 OLDSUM110=ea46d8ac1d6e44d5d924855e0902f3e4
 OLDSUM120=5411833b89f7261eaf90cc3153a208b6
 OLDSUM125=0200b0a5dd541dc428a0d9c7116ad08d
-CURSUM=5426e6a4e1dd365bd08cd4b8cbffa146
+CURSUM=c82e7473bb1490cf4702aaf7b669bb33
 
 checksum () {
 	echo "$1  /etc/network/interfaces" | md5sum -c --status 2> /dev/null
@@ -44,6 +44,11 @@ case "$1" in
 # Include files from /etc/network/interfaces.d:
 source-directory /etc/network/interfaces.d
 EOF
+    if dpkg --compare-versions "${2}" lt "1.2.7"; then
+      if [ -f /etc/systemd/system/dhcpcd.service.d/wait.conf ]; then
+        sed -i "s|/sbin/dhcpcd|/usr/lib/dhcpcd5/dhcpcd|" /etc/systemd/system/dhcpcd.service.d/wait.conf
+      fi
+    fi
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
