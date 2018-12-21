@@ -8,6 +8,7 @@ Type=oneshot
 RemainAfterExit=yes
 ExecStart=/bin/mv /boot/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf
 ExecStartPost=/bin/chmod 600 /etc/wpa_supplicant/wpa_supplicant.conf
+ExecStartPost=/usr/lib/raspberrypi-sys-mods/rfkill-wifi 0
 
 [Install]
 WantedBy=multi-user.target
