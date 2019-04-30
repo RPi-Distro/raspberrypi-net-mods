@@ -2,13 +2,14 @@
 Description=Copy user wpa_supplicant.conf
 ConditionPathExists=/boot/wpa_supplicant.conf
 Before=dhcpcd.service
+After=systemd-rfkill.service
 
 [Service]
 Type=oneshot
 RemainAfterExit=yes
 ExecStart=/bin/mv /boot/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf
 ExecStartPost=/bin/chmod 600 /etc/wpa_supplicant/wpa_supplicant.conf
-ExecStartPost=/usr/lib/raspberrypi-sys-mods/rfkill-wifi 0
+ExecStartPost=/usr/sbin/rfkill unblock wifi
 
 [Install]
 WantedBy=multi-user.target
