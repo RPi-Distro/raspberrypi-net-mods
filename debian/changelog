@@ -1,3 +1,9 @@
+raspberrypi-net-mods (1.3.0) buster; urgency=medium
+
+  * wifi-check.sh: check for /dev/rfkill
+
+ -- Serge Schneider <serge@raspberrypi.org>  Mon, 22 Jul 2019 10:23:05 +0100
+
 raspberrypi-net-mods (1.2.8) buster; urgency=medium
 
   * Add message if WiFi is blocked

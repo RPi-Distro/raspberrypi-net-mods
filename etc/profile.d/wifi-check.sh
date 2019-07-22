@@ -3,7 +3,7 @@
 
         . gettext.sh
 
-        if [ ! -x /usr/sbin/rfkill ]; then
+        if [ ! -x /usr/sbin/rfkill ] || [ ! -c /dev/rfkill ]; then
                 exit 0
         fi
 
