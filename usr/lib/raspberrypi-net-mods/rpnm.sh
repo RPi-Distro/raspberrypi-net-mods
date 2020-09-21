@@ -7,3 +7,4 @@ if [ -f "/boot/wpa_supplicant.conf" ]; then
 elif [ -f "/boot/wpa_supplicant.conf.txt" ]; then 
   /bin/mv /boot/wpa_supplicant.conf.txt /etc/wpa_supplicant/wpa_supplicant.conf
 fi
+dos2unix -7 /etc/wpa_supplicant.conf
