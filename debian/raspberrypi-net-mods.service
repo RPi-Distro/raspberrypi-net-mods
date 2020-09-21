@@ -7,7 +7,7 @@ After=systemd-rfkill.service
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/bin/sh -c "if [ -f "/boot/wpa_supplicant.conf" ]; then /bin/mv /boot/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf; if [ -f "/boot/wpa_supplicant.conf.txt" ]; then /bin/rm /boot/wpa_supplicant.conf.txt; fi; elif [ -f "/boot/wpa_supplicant.conf.txt" ]; then /bin/mv /boot/wpa_supplicant.conf.txt /etc/wpa_supplicant/wpa_supplicant.conf; fi"
+ExecStart=/usr/lib/raspberrypi-net-mods/rpnm.h
 ExecStartPost=/bin/chmod 600 /etc/wpa_supplicant/wpa_supplicant.conf
 ExecStartPost=/usr/sbin/rfkill unblock wifi
 
