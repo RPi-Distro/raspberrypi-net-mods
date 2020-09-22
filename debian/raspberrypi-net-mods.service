@@ -1,6 +1,6 @@
 [Unit]
 Description=Copy user wpa_supplicant.conf
-ConditionPathExists=/boot/wpa_supplicant.conf
+ConditionPathExists=/boot/wpa_supplicant.conf{,.txt}
 Before=dhcpcd.service
 After=systemd-rfkill.service
 
