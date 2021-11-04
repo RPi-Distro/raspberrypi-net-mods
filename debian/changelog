@@ -1,3 +1,11 @@
+raspberrypi-net-mods (1.3.1) buster; urgency=medium
+
+  * Add Wants=systemd-rfkill.service to systemd service
+    - Since systemd-rfkill.service is triggered by a socket, After= isn't
+      enough to ensure the service starts at the right time
+
+ -- Serge Schneider <serge@raspberrypi.com>  Wed, 03 Nov 2021 19:09:30 +0000
+
 raspberrypi-net-mods (1.3.0) buster; urgency=medium
 
   * wifi-check.sh: check for /dev/rfkill
