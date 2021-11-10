@@ -1,3 +1,9 @@
+raspberrypi-net-mods (1.3.3) buster; urgency=medium
+
+  * Remove systemd-rfkill persistance files in case it is not running yet
+
+ -- Serge Schneider <serge@raspberrypi.com>  Wed, 10 Nov 2021 16:01:40 +0000
+
 raspberrypi-net-mods (1.3.2) buster; urgency=medium
 
   * Revert 1.3.1, since it causes the service to time out in some cases
