@@ -3,6 +3,7 @@ raspberrypi-net-mods (1.3.4) bullseye; urgency=medium
   * Update wpa_supplicant.conf copy mechanism
     - Run as a script
     - Switch to dhcpcd if when used
+  * Add network-manager as an alternative to dhcpcd in dependencies
 
  -- Serge Schneider <serge@raspberrypi.com>  Mon, 08 Aug 2022 11:20:23 +0100
 
