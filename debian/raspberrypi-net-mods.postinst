@@ -2,56 +2,9 @@
 
 set -e
 
-ORIGSUM=c733430790aeafd2fb03d51a74381e7b
-ORIGSUM2=6b0af7757bfe7fb835cc37847edd15d2
-ORIGSUM3=4b09c86aaeef72f7afda6caeccf40882
-OLDSUM101=7759b1f54568d1b7e1996401558ded15
-OLDSUM110=ea46d8ac1d6e44d5d924855e0902f3e4
-OLDSUM120=5411833b89f7261eaf90cc3153a208b6
-OLDSUM125=0200b0a5dd541dc428a0d9c7116ad08d
-CURSUM=c82e7473bb1490cf4702aaf7b669bb33
-
-checksum () {
-	echo "$1  /etc/network/interfaces" | md5sum -c --status 2> /dev/null
-}
 
 case "$1" in
-    configure)
-	if checksum $OLDSUM125 || \
-	   checksum $OLDSUM120 || \
-	   checksum $OLDSUM110 || \
-	   checksum $OLDSUM101 || \
-	   checksum $ORIGSUM || \
-	   checksum $ORIGSUM2 || \
-	   checksum $ORIGSUM3 || \
-
-	   [ ! -e /etc/network/interfaces ]; then
-			echo "Updating /etc/network/interfaces. Original backed up as interfaces.dpkg-old."
-			mv /etc/network/interfaces /etc/network/interfaces.dpkg-old 2> /dev/null || true
-			FILE=/etc/network/interfaces
-		elif checksum $CURSUM; then
-			FILE=/dev/null
-		else
-			echo "Modified /etc/network/interfaces detected. Leaving unchanged and writing new file as interfaces.new."
-			FILE=/etc/network/interfaces.new
-		fi
-			cat <<EOF > $FILE
-# interfaces(5) file used by ifup(8) and ifdown(8)
-
-# Please note that this file is written to be used with dhcpcd
-# For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
-
-# Include files from /etc/network/interfaces.d:
-source-directory /etc/network/interfaces.d
-EOF
-    if dpkg --compare-versions "${2}" lt "1.2.7"; then
-      if [ -f /etc/systemd/system/dhcpcd.service.d/wait.conf ]; then
-        sed -i "s|/sbin/dhcpcd|/usr/lib/dhcpcd5/dhcpcd|" /etc/systemd/system/dhcpcd.service.d/wait.conf
-      fi
-    fi
-    ;;
-
-    abort-upgrade|abort-remove|abort-deconfigure)
+    configure|abort-upgrade|abort-remove|abort-deconfigure)
     ;;
 
     *)

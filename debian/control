@@ -7,6 +7,6 @@ Standards-Version: 4.3.0
 
 Package: raspberrypi-net-mods
 Architecture: all
-Depends: ${misc:Depends}, network-manager | dhcpcd5 (>= 6.10.1-1+rpi2),
+Depends: ${misc:Depends}, network-manager,
  raspi-config (>= 20220804)
 Description: Network configuration for the Raspberry Pi UI
