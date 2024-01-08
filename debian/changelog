@@ -1,3 +1,10 @@
+raspberrypi-net-mods (1.4.1) bookworm; urgency=medium
+
+  * wifi-check.sh: make sure /dev/rfkill is readable
+  * d/raspberrypi-net-mods.install: remove usr, since it no longer exists
+
+ -- Serge Schneider <serge@raspberrypi.com>  Mon, 08 Jan 2024 12:10:25 +0000
+
 raspberrypi-net-mods (1.4.0) bookworm; urgency=medium
 
   * Remove deprecated features
