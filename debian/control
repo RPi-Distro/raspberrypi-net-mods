@@ -7,6 +7,5 @@ Standards-Version: 4.3.0
 
 Package: raspberrypi-net-mods
 Architecture: all
-Depends: ${misc:Depends}, network-manager,
- raspi-config (>= 20220804)
+Depends: ${misc:Depends}, raspi-config (>= 20220804)
 Description: Network configuration for the Raspberry Pi UI
