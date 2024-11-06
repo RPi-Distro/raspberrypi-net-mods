@@ -13,6 +13,9 @@
 
         echo
         /usr/bin/gettext -s "Wi-Fi is currently blocked by rfkill."
-        /usr/bin/gettext -s "Use raspi-config to set the country before use."
+
+	if ! grep -s -q 'cfg80211\.ieee80211_regdom=' /boot/firmware/cmdline.txt; then
+                /usr/bin/gettext -s "Use raspi-config to set the country before use."
+        fi
         echo
 )
