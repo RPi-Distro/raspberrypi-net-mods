@@ -1,3 +1,9 @@
+raspberrypi-net-mods (1.4.2) bookworm; urgency=medium
+
+  * Remove country code message if it's already set
+
+ -- Serge Schneider <serge@raspberrypi.com>  Wed, 06 Nov 2024 13:41:13 +0000
+
 raspberrypi-net-mods (1.4.1) bookworm; urgency=medium
 
   * wifi-check.sh: make sure /dev/rfkill is readable
